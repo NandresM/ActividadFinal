@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BuscadorLibros</string>
+    <string name="logTitle">BIBLIOTECA UNMINUTO</string>
+    <string name="editTextUsuario">Correo electrónico</string>
+    <string name="editTextPassword">Contraseña</string>
+    <string name="botonIniciarSesion">Iniciar Sesión</string>
+    <string name="tv_register">Regístrate</string>
+    <string name="errorMessage">Error al iniciar sesión</string>
+
+</resources>
