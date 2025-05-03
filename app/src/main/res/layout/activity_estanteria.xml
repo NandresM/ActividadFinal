@@ -64,7 +64,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
 
-            android:contentDescription="Ir a Mi Estantería"
+            android:contentDescription="Ir a la biblioteca"
             android:text="@string/botonBiblioteca"/>
         <Button
             android:id="@+id/botonLaCerrarSesion"

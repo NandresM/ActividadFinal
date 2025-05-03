@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewLibros;
     private AdaptadorLibros adaptadorLibros;
     private Button botonEstanteria;
+    private Button botonLaCerrarSesion;
 
     // Reemplaza con tu propia API key de Google Books
     private static final String API_KEY = "AIzaSyB0cKtzZyHmtCRwto1mhfrei3oWly6N9Qw";
@@ -45,10 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Inicializar vistas
-        editTextBusqueda = findViewById(R.id.editTextBusqueda);
-        botonBuscar = findViewById(R.id.botonBuscar);
-        recyclerViewLibros = findViewById(R.id.recyclerViewLibros);
-        botonEstanteria = findViewById(R.id.botonEstanteria);
+       initViews();
 
         // Configurar RecyclerView
         recyclerViewLibros.setLayoutManager(new LinearLayoutManager(this));
@@ -85,6 +83,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         botonEstanteria.setOnClickListener(v -> irAMiEstanteria());
+    }
+
+    private void initViews() {
+        editTextBusqueda = findViewById(R.id.editTextBusqueda);
+        botonBuscar = findViewById(R.id.botonBuscar);
+        recyclerViewLibros = findViewById(R.id.recyclerViewLibros);
+        botonEstanteria = findViewById(R.id.botonEstanteria);
+        botonLaCerrarSesion = findViewById(R.id.botonLaCerrarSesion);
+
+        botonLaCerrarSesion.setOnClickListener(this::cerrarSesion);
     }
 
     private void realizarBusqueda() {
@@ -153,5 +161,15 @@ public class MainActivity extends AppCompatActivity {
     private void irAMiEstanteria() {
         startActivity(new Intent(MainActivity.this, EstanteriaActivity.class));
         finish();
+    }
+    private void cerrarSesion(View view) {
+
+
+        Intent intent = new Intent(this,Login.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        Toast.makeText(this, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+
     }
 }
