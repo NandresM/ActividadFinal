@@ -47,4 +47,7 @@ dependencies {
     // Para cargar imágenes
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+    //hahseao
+    //implementation ("org.mindrot:jbcrypt:0.4")
+    implementation ("at.favre.lib:bcrypt:0.9.0")
 }
