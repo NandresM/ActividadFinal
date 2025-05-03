@@ -24,6 +24,11 @@ public class Libro implements Serializable {
         return infoVolumen;
     }
 
+    public void setId(String id) {
+        this.id = id;
+
+    }
+
     public static class InfoVolumen implements Serializable {
         private static final long serialVersionUID = 1L;
 
@@ -38,6 +43,7 @@ public class Libro implements Serializable {
 
         @SerializedName("imageLinks")
         private ImagenEnlaces imagenEnlaces;
+
 
         public String getTitulo() {
             return titulo;

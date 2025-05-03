@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button botonBuscar;
     private RecyclerView recyclerViewLibros;
     private AdaptadorLibros adaptadorLibros;
+    private Button botonEstanteria;
 
     // Reemplaza con tu propia API key de Google Books
     private static final String API_KEY = "AIzaSyB0cKtzZyHmtCRwto1mhfrei3oWly6N9Qw";
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         editTextBusqueda = findViewById(R.id.editTextBusqueda);
         botonBuscar = findViewById(R.id.botonBuscar);
         recyclerViewLibros = findViewById(R.id.recyclerViewLibros);
+        botonEstanteria = findViewById(R.id.botonEstanteria);
 
         // Configurar RecyclerView
         recyclerViewLibros.setLayoutManager(new LinearLayoutManager(this));
@@ -66,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Configurar el botón de Mi Estantería
+
+
+
+
         // Configurar la acción de búsqueda en el EditText
         editTextBusqueda.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -77,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        botonEstanteria.setOnClickListener(v -> irAMiEstanteria());
     }
 
     private void realizarBusqueda() {
@@ -140,5 +148,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         startActivity(intent);
+    }
+
+    private void irAMiEstanteria() {
+        startActivity(new Intent(MainActivity.this, EstanteriaActivity.class));
+        finish();
     }
 }

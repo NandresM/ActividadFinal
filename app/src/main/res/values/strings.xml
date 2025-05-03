@@ -7,4 +7,14 @@
     <string name="tv_register">Regístrate</string>
     <string name="errorMessage">Error al iniciar sesión</string>
 
+
+
+    <string name="textViewTitulo">Mi Estantería</string>
+    <string name="textoEstanteriaVacia">No tienes libros guardados en tu estantería</string>
+    <string name="botonEstanteria">Estante</string>
+    <string name="botonLaCerrarSesion">Cerrar</string>
+    <string name="botonPerfil">Perfil</string>
+    <string name="favoritos">Fav</string>
+
+
 </resources>

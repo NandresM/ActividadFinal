@@ -23,11 +23,11 @@
         <EditText
             android:id="@+id/editTextBusqueda"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:layout_weight="1"
             android:hint="Buscar libros..."
-            android:inputType="text"
-            android:imeOptions="actionSearch"/>
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/botonBuscar"
@@ -39,7 +39,38 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewLibros"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"/>
+        android:layout_height="561dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Libros de API" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#CCCCCC"
+        >
+
+        <Button
+            android:id="@+id/botonEstanteria"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+
+            android:contentDescription="Ir a Mi Estantería"
+            android:text="@string/botonEstanteria"/>
+        <Button
+            android:id="@+id/botonLaCerrarSesion"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:contentDescription="Cerrar Sesión"
+            android:text="@string/botonLaCerrarSesion"
+
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
