@@ -59,13 +59,13 @@
 
 
         <Button
-            android:id="@+id/botonEstanteria"
+            android:id="@+id/botonBiblioteca"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
 
             android:contentDescription="Ir a Mi Estantería"
-            android:text="@string/botonEstanteria"/>
+            android:text="@string/botonBiblioteca"/>
         <Button
             android:id="@+id/botonLaCerrarSesion"
             android:layout_width="0dp"

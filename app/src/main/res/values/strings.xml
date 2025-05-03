@@ -16,5 +16,7 @@
     <string name="botonPerfil">Perfil</string>
     <string name="favoritos">Fav</string>
 
+    <string name="botonBiblioteca">Biblioteca</string>
+
 
 </resources>

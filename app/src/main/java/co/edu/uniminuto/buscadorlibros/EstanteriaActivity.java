@@ -24,7 +24,7 @@ public class EstanteriaActivity extends AppCompatActivity {
     private RecyclerView recyclerViewEstanteria;
     private AdaptadorLibros adaptadorLibros;
     private TextView textoEstanteriaVacia;
-    private Button botonEstanteria;
+    private Button botonBiblioteca;
     private Estanteria estanteria;
 
     @Override
@@ -35,7 +35,7 @@ public class EstanteriaActivity extends AppCompatActivity {
         // 1) Inicializar vistas
         recyclerViewEstanteria = findViewById(R.id.recyclerViewEstanteria);
         textoEstanteriaVacia  = findViewById(R.id.textoEstanteriaVacia);
-        botonEstanteria       = findViewById(R.id.botonEstanteria);  // Inicializado correctamente
+        botonBiblioteca       = findViewById(R.id.botonBiblioteca);  // Inicializado correctamente
 
         // 2) Configurar RecyclerView
         estanteria = Estanteria.getInstance(this);
@@ -44,11 +44,7 @@ public class EstanteriaActivity extends AppCompatActivity {
         recyclerViewEstanteria.setAdapter(adaptadorLibros);
 
         // 3) Listener del botón
-        botonEstanteria.setOnClickListener(v -> {
-            // Lanza otra Activity, no la misma
-            Intent intent = new Intent(EstanteriaActivity.this, DetalleLibroActivity.class);
-            startActivity(intent);
-        });
+
 
         // 4) Carga inicial de datos
         cargarLibrosGuardados();
@@ -59,6 +55,7 @@ public class EstanteriaActivity extends AppCompatActivity {
         super.onResume();
         // Solo refrescar datos
         cargarLibrosGuardados();
+        botonBiblioteca.setOnClickListener (this::abrirBiblioteca);
     }
 
     private void cargarLibrosGuardados() {
@@ -77,6 +74,11 @@ public class EstanteriaActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DetalleLibroActivity.class);
         intent.putExtra("LIBRO_ID", libro.getId());
 
+        startActivity(intent);
+    }
+
+    private void abrirBiblioteca(View view){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
