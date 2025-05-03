@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Button botonEstanteria;
     private Button botonLaCerrarSesion;
 
-    // Reemplaza con tu propia API key de Google Books
+
     private static final String API_KEY = "AIzaSyB0cKtzZyHmtCRwto1mhfrei3oWly6N9Qw";
     private static final int MAX_RESULTADOS = 20;
 
@@ -45,10 +45,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar vistas
        initViews();
 
-        // Configurar RecyclerView
         recyclerViewLibros.setLayoutManager(new LinearLayoutManager(this));
         adaptadorLibros = new AdaptadorLibros(this, new AdaptadorLibros.OnLibroClickListener() {
             @Override
@@ -66,12 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Configurar el botón de Mi Estantería
-
-
-
-
-        // Configurar la acción de búsqueda en el EditText
         editTextBusqueda.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -82,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        botonEstanteria.setOnClickListener(v -> irAMiEstanteria());
+
     }
 
     private void initViews() {
@@ -92,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         botonEstanteria = findViewById(R.id.botonEstanteria);
         botonLaCerrarSesion = findViewById(R.id.botonLaCerrarSesion);
 
+        botonEstanteria.setOnClickListener(this::irAMiEstanteria);
         botonLaCerrarSesion.setOnClickListener(this::cerrarSesion);
     }
 
@@ -158,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void irAMiEstanteria() {
+    private void irAMiEstanteria(View view) {
         startActivity(new Intent(MainActivity.this, EstanteriaActivity.class));
         finish();
     }

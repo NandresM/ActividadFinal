@@ -1,34 +1,30 @@
 package co.edu.uniminuto.buscadorlibros;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import co.edu.uniminuto.buscadorlibros.adaptadores.AdaptadorLibros;
-import co.edu.uniminuto.buscadorlibros.model.Estanteria;
 import co.edu.uniminuto.buscadorlibros.model.Libro;
+import co.edu.uniminuto.buscadorlibros.repository.LibroRepository;
 
 public class EstanteriaActivity extends AppCompatActivity {
     private RecyclerView recyclerViewEstanteria;
     private AdaptadorLibros adaptadorLibros;
     private TextView textoEstanteriaVacia;
     private Button botonBiblioteca;
-    private Estanteria estanteria;
+
     private Button botonLaCerrarSesion;
+    private LibroRepository libroRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +33,12 @@ public class EstanteriaActivity extends AppCompatActivity {
 
        initViews();
 
-        // 2) Configurar RecyclerView
-        estanteria = Estanteria.getInstance(this);
-        recyclerViewEstanteria.setLayoutManager(new LinearLayoutManager(this));
-        adaptadorLibros = new AdaptadorLibros(this, libro -> abrirDetalleLibro(libro));
-        recyclerViewEstanteria.setAdapter(adaptadorLibros);
+        libroRepository = new LibroRepository(this);
 
-        // 3) Listener del botón
-
-
-        // 4) Carga inicial de datos
+        configurarRecyclerView();
         cargarLibrosGuardados();
+
+
     }
     private void initViews() {
         botonBiblioteca = findViewById(R.id.botonBiblioteca);
@@ -68,8 +59,13 @@ public class EstanteriaActivity extends AppCompatActivity {
 
     }
 
+    private void configurarRecyclerView() {
+        recyclerViewEstanteria.setLayoutManager(new LinearLayoutManager(this));
+        adaptadorLibros = new AdaptadorLibros(this, libro -> abrirDetalleLibro(libro));
+        recyclerViewEstanteria.setAdapter(adaptadorLibros);
+    }
     private void cargarLibrosGuardados() {
-        List<Libro> librosGuardados = estanteria.obtenerTodosLosLibros();
+        List<Libro> librosGuardados = libroRepository.getAllLibros();
         if (librosGuardados.isEmpty()) {
             recyclerViewEstanteria.setVisibility(View.GONE);
             textoEstanteriaVacia.setVisibility(View.VISIBLE);

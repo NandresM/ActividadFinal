@@ -22,13 +22,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:padding="8dp"
         android:contentDescription="Lista de libros en la estantería"
         android:onClick="irAMiEstanteria"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTitulo"
 
-        tools:ignore="OnClick" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="OnClick"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textoEstanteriaVacia"
@@ -45,17 +47,16 @@
         app:layout_constraintTop_toBottomOf="@id/textViewTitulo" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="16dp"
         android:background="#CCCCCC"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <Button
@@ -65,7 +66,8 @@
             android:layout_weight="1"
 
             android:contentDescription="Ir a la biblioteca"
-            android:text="@string/botonBiblioteca"/>
+            android:text="@string/botonBiblioteca" />
+
         <Button
             android:id="@+id/botonLaCerrarSesion"
             android:layout_width="0dp"
